@@ -29,6 +29,23 @@ public class Instruction {
 		String path = config.get("math");
 		Map<String, String> mathMap = LineTool.getLine(path, ":\r\n");
 		Log.log(mathMap);
+		String code = getCode("add", mathMap);
+		Log.log("code:" + code);
+	}
+	
+	/**
+	 * 获取代码
+	 * @param codeName
+	 * @param codeMap
+	 * @return
+	 */
+	private String getCode(String codeName, Map<String, String> codeMap) {
+		for(String key:codeMap.keySet()) {
+			if(key.indexOf(codeName) >= 0) {
+				return codeMap.get(key);
+			}
+		}
+		return null;
 	}
 	
 	public static void main(String[] args) {
