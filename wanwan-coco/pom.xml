@@ -26,6 +26,12 @@
 			<artifactId>wanwan-file-map</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.wanwanframework.file.poi</groupId>
+			<artifactId>wanwan-file-poi</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
