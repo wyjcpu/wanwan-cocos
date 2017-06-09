@@ -29,7 +29,12 @@ public class ExcelReadTool {
 		return list;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static String getCellValue(Cell cell) {
+		switch (cell.getCellType()) {
+		case Cell.CELL_TYPE_NUMERIC:
+			return String.valueOf(cell.getNumericCellValue());
+		}
 		return cell.getStringCellValue();
 	}
 }
