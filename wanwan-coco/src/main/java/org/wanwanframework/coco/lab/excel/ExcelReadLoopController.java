@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Arrays;
 
 import org.wanwanframework.file.config.ConfigController;
-import org.wanwanframwork.file.Log;
 import org.wanwanframwork.file.core.FileController;
 
 /**
@@ -27,7 +26,7 @@ public class ExcelReadLoopController extends FileController<File[]>{
 	@Override
 	protected void process() {
 		Arrays.asList(core).stream().forEach(file ->{
-			Log.log("....file:" + file.getName());
+			ExcelReadController.call(new ExcelReadController(file));
 		});
 	}
 	

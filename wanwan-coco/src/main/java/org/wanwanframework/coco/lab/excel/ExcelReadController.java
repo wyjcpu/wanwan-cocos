@@ -13,6 +13,10 @@ public class ExcelReadController extends FileController<Workbook>{
 		core = ExcelUtils.getWorkBook(new File("./src/main/resources/config/lab/u000100120170608002.xlsx"));
 	}
 	
+	public ExcelReadController(File file) {
+		core = ExcelUtils.getWorkBook(file);
+	}
+	
 	@Override
 	protected void process() {
 		for (Sheet sheet : core) {
