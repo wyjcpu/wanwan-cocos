@@ -1,16 +1,15 @@
 package org.wanwanframework.coco;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/context-quartz.xml" })
 public class QuartzTest {
-	
-	@Test
-	public void testQuartz() {
-	
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/context-quartz.xml");
+		SchedulerFactoryBean bean = context.getBean(SchedulerFactoryBean.class);
+		bean.start();
 	}
 }
