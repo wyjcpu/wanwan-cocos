@@ -1,1 +1,0 @@
-path:	E:/git/wanwang/wanwan-orange/config-core/core/start.txt;
