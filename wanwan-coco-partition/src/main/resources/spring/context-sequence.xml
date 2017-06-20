@@ -6,16 +6,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
        	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- mybitas 配置 sqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis-resources.xml"></property>
-		<property name="mapperLocations">
-			<list> 
-			
-			</list>
-		</property>
-	</bean>
+	<!-- sequence 配置 -->
 
-	<import resource="context-datasource.xml"/>
+	<import resource="context-mybatis.xml"/>
 </beans>
