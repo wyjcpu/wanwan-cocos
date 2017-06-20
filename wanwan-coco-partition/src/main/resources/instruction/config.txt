@@ -1,1 +1,0 @@
-url:	./src/main/resources/instruction/url.txt;
