@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.wanwanframework.coco</groupId>
-	<artifactId>wanwan-coco</artifactId>
+	<groupId>org.wanwanframework.coco.partition</groupId>
+	<artifactId>wanwan-coco-partition</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>wanwan-coco</name>
+	<name>wanwan-coco-partition</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
