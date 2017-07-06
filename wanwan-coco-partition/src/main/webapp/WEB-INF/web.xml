@@ -13,7 +13,7 @@
 
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/context-mvc.xml</param-value>   
+    <param-value>classpath:spring/context-mybatis.xml</param-value>   
   </context-param>
   
     <!-- 创建Spring的监听器 -->
