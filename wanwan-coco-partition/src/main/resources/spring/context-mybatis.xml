@@ -12,10 +12,11 @@
 		<property name="configLocation" value="classpath:mybatis-resources.xml"></property>
 		<property name="mapperLocations">
 			<list> 
-			
+				<value>classpath:/mybatis/DataIdMapper.xml</value>
 			</list>
 		</property>
 	</bean>
-
+	<context:component-scan base-package="org.wanwanframework.coco.partition"/>
+	
 	<import resource="context-datasource.xml"/>
 </beans>
