@@ -7,3 +7,7 @@ coco-partition
 	
 2, 访问地址
 	http://localhost:8080/wanwan-coco-partition
+	
+3, 调用序列
+	3.1 datasource	-> mybatis	-> dao -> mvc
+								-> tx						

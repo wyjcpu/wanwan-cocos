@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.util.Assert;
 
@@ -27,10 +29,9 @@ import org.springframework.util.Assert;
  * @param <T>
  */
 @SuppressWarnings("unchecked")
-public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
+public class DAO<T> extends AstractSqlSessionDaoSupport {
 
-
-//    private final Logger logger = LoggerFactory.getLogger(MyBatisBaseDAO.class);
+    private final Logger logger = LoggerFactory.getLogger(DAO.class);
 
     /**
      * 保存新增的对象
@@ -42,10 +43,9 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
         try {
             Assert.notNull(object, "object saved is not null.");
             getSqlSession().insert(key, object);
-//            logger.debug("save key: {}, object: {}", key, object);
+            logger.debug("save key: {}, object: {}", key, object);
         } catch (DataAccessException e) {
             logger.error("save error", e);
-//            throw new DAOException("save error.", e);
         }
     }
 
@@ -57,11 +57,10 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public void delete(String key, Serializable id) {
         try {
-//            logger.debug("delete key: {}, id: {}", key, id);
+            logger.debug("delete key: {}, id: {}", key, id);
             getSqlSession().delete(key, id);
         } catch (DataAccessException e) {
             logger.error("delete by id error", e);
-//            throw new DAOException("delete by id error.", e);
         }
     }
 
@@ -73,11 +72,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public void delete(String key, Object object) {
         try {
-//            logger.debug("delete key: {}, object: {}", key, object);
+            logger.debug("delete key: {}, object: {}", key, object);
             getSqlSession().delete(key, object);
         } catch (DataAccessException e) {
             logger.error("delete error", e);
-//            throw new DAOException("delete by object error.", e);
+
         }
     }
 
@@ -88,12 +87,12 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      * @param conditionMap
      */
     public void delete(final String key, final Map<String, Object> conditionMap) {
-//        logger.debug("delete key:{} conditionMap:{}", key, conditionMap);
         try {
+        	logger.debug("delete key:{} conditionMap:{}", key, conditionMap);
             getSqlSession().delete(key, conditionMap);
         } catch (DataAccessException e) {
             logger.error("delete error", e);
-//            throw new DAOException("delete by params error", e);
+
         }
     }
 
@@ -105,11 +104,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public void update(String key, Object object) {
         try {
-//            logger.debug("update key: {}, object: {}", key, object);
+            logger.debug("update key: {}, object: {}", key, object);
             getSqlSession().update(key, object);
         } catch (DataAccessException e) {
             logger.error("update error", e);
-//            throw new DAOException(e);
+
         }
     }
 
@@ -122,12 +121,12 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
 
 	public T get(final String key, final Object param) {
-//        logger.debug("get key:{} param:{}", key, param);
+        logger.debug("get key:{} param:{}", key, param);
         try {
             return (T) getSqlSession().selectOne(key, param);
         } catch (DataAccessException e) {
             logger.error("get error：", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -140,12 +139,12 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      * @return
      */
     public T get(final String key, final Map<String, Object> paramMap) {
-//        logger.debug("get key:{} paramMap:{}", key, paramMap);
+        logger.debug("get key:{} paramMap:{}", key, paramMap);
         try {
             return (T) getSqlSession().selectOne(key, paramMap);
         } catch (DataAccessException e) {
             logger.error("get error", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -159,11 +158,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public T get(String key) {
         try {
-//            logger.debug("getList key{}", key);
+            logger.debug("getList key{}", key);
             return (T) getSqlSession().selectOne(key);
         } catch (DataAccessException e) {
             logger.error("getList get key error", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -192,7 +191,7 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
             object = (Long) getSqlSession().selectOne(key, proprtyMap);
         } catch (DataAccessException e) {
             logger.error("checkPropertyValueUnique error", e);
-//            throw new DAOException(e);
+
         }
         return object == 0L;
     }
@@ -207,11 +206,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public List<T> getList(String key) {
         try {
-//            logger.debug("getList key{}", key);
+            logger.debug("getList key{}", key);
             return getSqlSession().selectList(key);
         } catch (DataAccessException e) {
             logger.error("getList error is :", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -225,11 +224,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public List<T> getList(String key, Serializable serializable) {
         try {
-//            logger.debug("getList key{},serializable{}", key, serializable);
+            logger.debug("getList key{},serializable{}", key, serializable);
             return getSqlSession().selectList(key, serializable);
         } catch (DataAccessException e) {
             logger.error("getList error", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -244,12 +243,12 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      * @return
      */
     public List<T> getList(String key, final Object param) {
-//        logger.debug("getList key{},param{}", key, param);
+        logger.debug("getList key{},param{}", key, param);
         try {
             return getSqlSession().selectList(key, param);
         } catch (DataAccessException e) {
             logger.error("getList error", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -260,12 +259,12 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      * @return
      */
     public List<T> getList(String key, final Map<String, Object> paramMap) {
-//        logger.debug("getList key{},paramMap{}", key, paramMap);
+        logger.debug("getList key{},paramMap{}", key, paramMap);
         try {
             return getSqlSession().selectList(key, paramMap);
         } catch (DataAccessException e) {
             logger.error("getList error {}", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
@@ -283,11 +282,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
     public long getTotalCount(final String key, final Object... params) {
         try {
             Map<String, Object> paramMap = fillConditionMap(params);
-//            logger.debug("getList key {},paramMap {}", key, paramMap);
+            logger.debug("getList key {},paramMap {}", key, paramMap);
             return (Long) getSqlSession().selectOne(key, paramMap);
         } catch (DataAccessException e) {
             logger.error("getTotalCount error", e);
-//            throw new DAOException(e);
+
         }
 		return 0;
     }
@@ -304,11 +303,11 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      */
     public long getCount(final String key, final Map<?,?> paramMap) {
         try {
-//            logger.debug("getList key {},paramMap {}", key, paramMap);
+            logger.debug("getList key {},paramMap {}", key, paramMap);
             return (Long) getSqlSession().selectOne(key, paramMap);
         } catch (DataAccessException e) {
             logger.error("getCount error", e);
-//            throw new DAOException(e);
+
         }
 		return 0;
     }
@@ -386,12 +385,12 @@ public class MyBatisBaseDAO<T> extends AstractSqlSessionDaoSupport {
      * @return 序列值
      */
     public String getSeqValue(String key) {
-//        logger.error("getSeqValue key:{}", key);
+        logger.error("getSeqValue key:{}", key);
         try {
             return (String) getSqlSession().selectOne(key);
         } catch (DataAccessException e) {
             logger.error("getSeqValue error:{}", e);
-//            throw new DAOException(e);
+
         }
 		return null;
     }
