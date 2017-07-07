@@ -8,6 +8,5 @@
        	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<mvc:annotation-driven />
-	<context:component-scan base-package="org.wanwanframework.coco.partition.controller"></context:component-scan>
 
 </beans>
