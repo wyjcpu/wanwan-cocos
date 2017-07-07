@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.wanwanframework.coco.partition.controller.PartitionController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/context-mybatis.xml" })
+@ContextConfiguration(locations = { "classpath:spring/context-mvc.xml" })
 public class MvcTest {
 	
 	@Autowired
