@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 /**
  * Hardcoded java.util.logging commons-logging implementation.
  */
-class DirectJDKLog implements Log {
+class CocoLog implements Log {
     // no reason to hide this - but good reasons to not hide
     public final Logger logger;
 
@@ -64,7 +64,7 @@ class DirectJDKLog implements Log {
         }
     }
 
-    public DirectJDKLog(String name ) {
+    public CocoLog(String name ) {
         logger=Logger.getLogger(name);
     }
 
@@ -185,7 +185,7 @@ class DirectJDKLog implements Log {
     }
 
     static Log getInstance(String name) {
-        return new DirectJDKLog( name );
+        return new CocoLog( name );
     }
 }
 

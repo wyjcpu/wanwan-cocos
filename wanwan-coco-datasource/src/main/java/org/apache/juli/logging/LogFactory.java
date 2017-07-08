@@ -112,7 +112,7 @@ public class LogFactory {
      */
     public Log getInstance(String name) throws LogConfigurationException {
         if (discoveredLogConstructor == null) {
-            return DirectJDKLog.getInstance(name);
+            return CocoLog.getInstance(name);
         }
 
         try {
