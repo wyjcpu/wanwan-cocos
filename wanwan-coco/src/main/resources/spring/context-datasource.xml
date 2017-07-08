@@ -20,19 +20,14 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-		init-method="init" destroy-method="close">
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">  
+	    <property name="driverClassName"><value>oracle.jdbc.OracleDriver</value></property>  
 		<property name="url" value="${db.url}" />
 		<property name="username" value="${db.username}" />
 		<property name="password" value="${db.password}" />
 		<property name="initialSize" value="${db.initialSize}" />
 		<property name="minIdle" value="${db.minIdle}" />
-		<property name="maxActive" value="${db.maxActive}" />
-
-		<property name="maxWait" value="${db.maxWait}" />
-		<property name="testWhileIdle" value="${db.testWhileIdle}" />
-		<property name="timeBetweenEvictionRunsMillis" value="${db.timeBetweenEvictionRunsMillis}" />
-		<property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}" />
-	</bean>
+		<property name="maxActive" value="${db.maxActive}" />  
+</bean>  
 
 </beans>
