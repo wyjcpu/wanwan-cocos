@@ -10,11 +10,11 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-resources.xml"></property>
-		<property name="mapperLocations">
+		<!-- @mapperLocations<property name="mapperLocations">
 			<list> 
 				<value>classpath:/mybatis/DataIdMapper.xml</value>
 			</list>
-		</property>
+		</property> -->
 	</bean>
 
 	<import resource="context-datasource.xml"/>
