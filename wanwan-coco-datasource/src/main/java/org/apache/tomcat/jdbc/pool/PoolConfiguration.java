@@ -22,7 +22,7 @@ import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorDefinition;
 
 /**
  * A list of properties that are configurable for a connection pool.
- * The {@link DataSource} object also implements this interface so that it can be easily configured through
+ * The {@link CocoDataSource} object also implements this interface so that it can be easily configured through
  * an IoC container without having to specify a secondary object with a setter method.
  *
  */
@@ -222,7 +222,7 @@ public interface PoolConfiguration {
      * boolean flag to set if stack traces should be logged for application code which abandoned a Connection.
      * Logging of abandoned Connections adds overhead for every Connection borrow because a stack trace has to be generated.
      * The default value is false.
-     * @param logAbandoned set to true if stack traces should be recorded when {@link DataSource#getConnection()} is called.
+     * @param logAbandoned set to true if stack traces should be recorded when {@link CocoDataSource#getConnection()} is called.
      */
     public void setLogAbandoned(boolean logAbandoned);
 
@@ -790,18 +790,18 @@ public interface PoolConfiguration {
     public String getDataSourceJNDI();
 
     /**
-     * Returns true if the call {@link DataSource#getConnection(String, String) getConnection(username,password)} is
+     * Returns true if the call {@link CocoDataSource#getConnection(String, String) getConnection(username,password)} is
      * allowed. This is used for when the pool is used by an application accessing multiple schemas.
      * There is a performance impact turning this option on.
-     * @return true if {@link DataSource#getConnection(String, String) getConnection(username,password)} is honored, false if it is ignored.
+     * @return true if {@link CocoDataSource#getConnection(String, String) getConnection(username,password)} is honored, false if it is ignored.
      */
     public boolean isAlternateUsernameAllowed();
 
     /**
-     * Set to true if the call {@link DataSource#getConnection(String, String) getConnection(username,password)} is
+     * Set to true if the call {@link CocoDataSource#getConnection(String, String) getConnection(username,password)} is
      * allowed and honored.. This is used for when the pool is used by an application accessing multiple schemas.
      * There is a performance impact turning this option on, even when not used due to username checks.
-     * @param alternateUsernameAllowed - set true if {@link DataSource#getConnection(String, String) getConnection(username,password)} is honored,
+     * @param alternateUsernameAllowed - set true if {@link CocoDataSource#getConnection(String, String) getConnection(username,password)} is honored,
      * false if it is to be ignored.
      */
     public void setAlternateUsernameAllowed(boolean alternateUsernameAllowed);

@@ -20,7 +20,7 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">  
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.CocoDataSource" destroy-method="close">  
 	    <property name="driverClassName"><value>oracle.jdbc.OracleDriver</value></property>  
 		<property name="url" value="${db.url}" />
 		<property name="username" value="${db.username}" />

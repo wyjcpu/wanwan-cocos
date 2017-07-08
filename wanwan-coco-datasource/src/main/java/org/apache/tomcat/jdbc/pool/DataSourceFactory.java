@@ -221,7 +221,7 @@ public class DataSourceFactory implements ObjectFactory {
             ok = true;
             XA = true;
         }
-        if (org.apache.tomcat.jdbc.pool.DataSource.class.getName().equals(ref.getClassName())) {
+        if (org.apache.tomcat.jdbc.pool.CocoDataSource.class.getName().equals(ref.getClassName())) {
             ok = true;
         }
 
@@ -552,9 +552,9 @@ public class DataSourceFactory implements ObjectFactory {
         if (poolProperties.getDataSourceJNDI()!=null && poolProperties.getDataSource()==null) {
             performJNDILookup(context, poolProperties);
         }
-        org.apache.tomcat.jdbc.pool.DataSource dataSource = XA?
+        org.apache.tomcat.jdbc.pool.CocoDataSource dataSource = XA?
                 new org.apache.tomcat.jdbc.pool.XADataSource(poolProperties) :
-                new org.apache.tomcat.jdbc.pool.DataSource(poolProperties);
+                new org.apache.tomcat.jdbc.pool.CocoDataSource(poolProperties);
         //initialise the pool itself
         dataSource.createPool();
         // Return the configured DataSource instance

@@ -688,7 +688,7 @@ public class DataSourceProxy implements PoolConfiguration {
 
     /**
      * @return number of connections in use by the application
-     * {@link DataSource#getActive()}
+     * {@link CocoDataSource#getActive()}
      */
     public int getNumActive() {
         return getActive();

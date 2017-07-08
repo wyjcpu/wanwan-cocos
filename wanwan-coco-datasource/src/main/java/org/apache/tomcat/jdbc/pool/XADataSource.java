@@ -17,7 +17,7 @@
 
 package org.apache.tomcat.jdbc.pool;
 
-public class XADataSource extends DataSource implements javax.sql.XADataSource {
+public class XADataSource extends CocoDataSource implements javax.sql.XADataSource {
 
     /**
      * Constructor for reflection only. A default set of pool properties will be created.

@@ -35,13 +35,13 @@ import org.apache.juli.logging.LogFactory;
  * The DataSource simply wraps a {@link ConnectionPool} in order to provide a standard interface to the user.
  * @version 1.0
  */
-public class DataSource extends DataSourceProxy implements javax.sql.DataSource,MBeanRegistration, org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean, javax.sql.ConnectionPoolDataSource {
-    private static final Log log = LogFactory.getLog(DataSource.class);
+public class CocoDataSource extends DataSourceProxy implements javax.sql.DataSource,MBeanRegistration, org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean, javax.sql.ConnectionPoolDataSource {
+    private static final Log log = LogFactory.getLog(CocoDataSource.class);
 
     /**
      * Constructor for reflection only. A default set of pool properties will be created.
      */
-    public DataSource() {
+    public CocoDataSource() {
         super();
     }
 
@@ -49,7 +49,7 @@ public class DataSource extends DataSourceProxy implements javax.sql.DataSource,
      * Constructs a DataSource object wrapping a connection
      * @param poolProperties
      */
-    public DataSource(PoolConfiguration poolProperties) {
+    public CocoDataSource(PoolConfiguration poolProperties) {
         super(poolProperties);
     }
 
