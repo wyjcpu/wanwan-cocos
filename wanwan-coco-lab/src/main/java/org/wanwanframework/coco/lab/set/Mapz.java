@@ -10,14 +10,14 @@ import java.util.List;
  * @param <K>
  * @param <V>
  */
-public class Map<K, V> {
+public class Mapz<K, V> {
 
 	private List<KeyValue<K, V>> list = new ArrayList<>();
 	private List<K> keySet = new ArrayList<>();
 	
 	private V v;
 	
-	public Map() {
+	public Mapz() {
 
 	}
 	
@@ -47,7 +47,7 @@ public class Map<K, V> {
 	}
 
 	public static void main(String[] args) {
-		Map<String, String> map = new Map<String, String>();
+		Mapz<String, String> map = new Mapz<String, String>();
 		map.put("hahah", "2333........");
 		System.out.println(map.get("hahah"));
 	}
