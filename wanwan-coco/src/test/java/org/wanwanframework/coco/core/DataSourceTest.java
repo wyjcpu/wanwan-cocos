@@ -16,6 +16,14 @@ import org.wanwanframwork.file.Log;
 @ContextConfiguration(locations = { "classpath:spring/context-datasource.xml" })
 public class DataSourceTest {
 
+	static {
+		try {
+			Class.forName("org.sqlite.JDBC");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+	}
+	
 	@Autowired
 	private DataSource dataSource;
 	
@@ -31,13 +39,11 @@ public class DataSourceTest {
 	@Test
 	public void testJdbcTemplate() {
 		Log.log("jdbcTemplate:" + jdbcTemplate);
-		
-	      String sql = "CREATE TABLE COMPANY " +
-                  "(ID INT PRIMARY KEY     NOT NULL," +
-                  " NAME           TEXT    NOT NULL, " + 
-                  " AGE            INT     NOT NULL, " + 
-                  " ADDRESS        CHAR(50), " + 
-                  " SALARY         REAL)"; 
-	      jdbcTemplate.execute(sql);
+
+		String sql = "CREATE TABLE USER " + 
+		"(ID 			INT	PRIMARY KEY	NOT NULL," + 
+		" USERNAME	TEXT    		NOT NULL," + 
+		" PASSWORD	TEXT    		NOT NULL)";
+		jdbcTemplate.execute(sql);
 	}
 }
