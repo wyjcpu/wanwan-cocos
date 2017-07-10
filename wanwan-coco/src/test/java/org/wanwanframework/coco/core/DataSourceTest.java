@@ -31,5 +31,13 @@ public class DataSourceTest {
 	@Test
 	public void testJdbcTemplate() {
 		Log.log("jdbcTemplate:" + jdbcTemplate);
+		
+	      String sql = "CREATE TABLE COMPANY " +
+                  "(ID INT PRIMARY KEY     NOT NULL," +
+                  " NAME           TEXT    NOT NULL, " + 
+                  " AGE            INT     NOT NULL, " + 
+                  " ADDRESS        CHAR(50), " + 
+                  " SALARY         REAL)"; 
+	      jdbcTemplate.execute(sql);
 	}
 }

@@ -19,7 +19,7 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource" class="org.wanwanframework.coco.datasource.pool.CocoDataSource"
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="org.sqlite.JDBC" />
 		<property name="url" value="${db.url}" />
