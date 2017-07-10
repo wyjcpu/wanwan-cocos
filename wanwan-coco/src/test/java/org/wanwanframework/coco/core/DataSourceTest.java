@@ -2,6 +2,8 @@ package org.wanwanframework.coco.core;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.junit.Test;
@@ -45,5 +47,18 @@ public class DataSourceTest {
 		" USERNAME	TEXT    		NOT NULL," + 
 		" PASSWORD	TEXT    		NOT NULL)";
 		jdbcTemplate.execute(sql);
+	}
+	
+	@Test
+	public void testInsert() {
+		String sql = "insert into USER (ID, USERNAME, PASSWORD) values (1, 'vv', '123456')";
+		jdbcTemplate.execute(sql);
+	}
+	
+	@Test
+	public void testQuery() {
+		List<?> map = jdbcTemplate.queryForList(
+				"select * from USER where username ='vv'");
+		Log.log(map);
 	}
 }

@@ -13,3 +13,4 @@
 2017-07-10 21:14:41,094 443  [main] INFO  org.wanwanframwork.file.Log - jdbcTemplate:org.springframework.jdbc.core.JdbcTemplate@6356695f
 2017-07-10 21:20:25,905 296  [main] INFO  org.wanwanframwork.file.Log - jdbcTemplate:org.springframework.jdbc.core.JdbcTemplate@6356695f
 2017-07-10 21:20:42,774 461  [main] INFO  org.wanwanframwork.file.Log - jdbcTemplate:org.springframework.jdbc.core.JdbcTemplate@6356695f
+2017-07-10 21:28:46,880 227  [main] INFO  org.wanwanframwork.file.Log - [{ID=1, USERNAME=vv, PASSWORD=123456}]
