@@ -82,7 +82,6 @@ public class GenericNamingResourcesFactory implements ObjectFactory {
         return o;
     }
 
-    @SuppressWarnings("null") // setPropertyMethodVoid can't be null when used
     private static boolean setProperty(Object o, String name, String value) {
         if (log.isDebugEnabled())
             log.debug("IntrospectionUtils: setProperty(" +
