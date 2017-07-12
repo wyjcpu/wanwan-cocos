@@ -25,7 +25,7 @@ package org.wanwanframework.coco.datasource.logging;
  *
  * @author Craig R. McClanahan
  */
-public class LogConfigurationException extends RuntimeException {
+public class LogException extends RuntimeException {
 
 
     private static final long serialVersionUID = 1L;
@@ -34,7 +34,7 @@ public class LogConfigurationException extends RuntimeException {
     /**
      * Construct a new exception with <code>null</code> as its detail message.
      */
-    public LogConfigurationException() {
+    public LogException() {
         super();
     }
 
@@ -44,7 +44,7 @@ public class LogConfigurationException extends RuntimeException {
      *
      * @param message The detail message
      */
-    public LogConfigurationException(String message) {
+    public LogException(String message) {
         super(message);
     }
 
@@ -55,7 +55,7 @@ public class LogConfigurationException extends RuntimeException {
      *
      * @param cause The underlying cause
      */
-    public LogConfigurationException(Throwable cause) {
+    public LogException(Throwable cause) {
         super(cause);
     }
 
@@ -66,7 +66,7 @@ public class LogConfigurationException extends RuntimeException {
      * @param message The detail message
      * @param cause The underlying cause
      */
-    public LogConfigurationException(String message, Throwable cause) {
+    public LogException(String message, Throwable cause) {
         super(message, cause);
     }
 }

@@ -107,10 +107,10 @@ public class LogFactory {
      *  returned (the meaning of this name is only known to the underlying
      *  logging implementation that is being wrapped)
      *
-     * @exception LogConfigurationException if a suitable <code>Log</code>
+     * @exception LogException if a suitable <code>Log</code>
      *  instance cannot be returned
      */
-    public Log getInstance(String name) throws LogConfigurationException {
+    public Log getInstance(String name) throws LogException {
         if (discoveredLogConstructor == null) {
             return CocoLog.getInstance(name);
         }
@@ -119,7 +119,7 @@ public class LogFactory {
             return discoveredLogConstructor.newInstance(name);
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
                 InvocationTargetException e) {
-            throw new LogConfigurationException(e);
+            throw new LogException(e);
         }
     }
 
@@ -130,10 +130,10 @@ public class LogFactory {
      *
      * @param clazz Class for which a suitable Log name will be derived
      *
-     * @exception LogConfigurationException if a suitable <code>Log</code>
+     * @exception LogException if a suitable <code>Log</code>
      *  instance cannot be returned
      */
-    public Log getInstance(Class<?> clazz) throws LogConfigurationException {
+    public Log getInstance(Class<?> clazz) throws LogException {
         return getInstance( clazz.getName());
     }
 
@@ -166,10 +166,10 @@ public class LogFactory {
      * properties defined in this file will be set as configuration attributes
      * on the corresponding <code>LogFactory</code> instance.</p>
      *
-     * @exception LogConfigurationException if the implementation class is not
+     * @exception LogException if the implementation class is not
      *  available or cannot be instantiated.
      */
-    public static LogFactory getFactory() throws LogConfigurationException {
+    public static LogFactory getFactory() throws LogException {
         return singleton;
     }
 
@@ -180,11 +180,11 @@ public class LogFactory {
      *
      * @param clazz Class from which a log name will be derived
      *
-     * @exception LogConfigurationException if a suitable <code>Log</code>
+     * @exception LogException if a suitable <code>Log</code>
      *  instance cannot be returned
      */
     public static Log getLog(Class<?> clazz)
-        throws LogConfigurationException {
+        throws LogException {
         return (getFactory().getInstance(clazz));
 
     }
@@ -198,11 +198,11 @@ public class LogFactory {
      *  returned (the meaning of this name is only known to the underlying
      *  logging implementation that is being wrapped)
      *
-     * @exception LogConfigurationException if a suitable <code>Log</code>
+     * @exception LogException if a suitable <code>Log</code>
      *  instance cannot be returned
      */
     public static Log getLog(String name)
-        throws LogConfigurationException {
+        throws LogException {
         return (getFactory().getInstance(name));
 
     }
